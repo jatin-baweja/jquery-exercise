@@ -10,7 +10,7 @@ $(document).ready(function() {
   $searchBoxLabel.remove();
   $searchBox.bind('focus', function() {
     var $this = $(this);
-    //Remove hint text only if search box class has hint and hint text string is present
+    //Remove hint text only if search box class is hint and hint text string is present
     if (typeof $this.val() == "string" && $this.val() == $this.data('hintText').text() && $this.hasClass('hint')) {
       $this.val('').removeClass('hint');
     }
