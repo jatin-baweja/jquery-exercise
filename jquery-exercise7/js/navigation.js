@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  $menuItems = $('#nav li');
+  var $menuItems = $('#nav li');
   $menuItems.hover(function() {
-    $this = $(this);
+    var $this = $(this);
     $this.children().toggleClass('hover');
   });
 });
