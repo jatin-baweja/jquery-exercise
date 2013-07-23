@@ -9,7 +9,7 @@ $(document).ready(function() {
     $.ajax({
       url : contentUrl,
       type : "GET",
-      dataType :'json',
+      dataType : 'json',
       success : function(json) {
         var recievedJSON = json;
         //Don't change target div if Select is selected
@@ -21,7 +21,7 @@ $(document).ready(function() {
         $selectDropdown.bind('change', function(event) {
           if (typeof event.target.value == "string" && event.target.value != "") {
             var currentSpecial = recievedJSON[event.target.value];
-            var htmlToShow = "<h3>" + currentSpecial.title + "</h3><img src ='." + currentSpecial.image + "'/><p style='color:" + currentSpecial.color + "'>" + currentSpecial.text + "</p>";
+            var htmlToShow = "<h3>" + currentSpecial.title + "</h3><img src='." + currentSpecial.image + "'/><p style='color:" + currentSpecial.color + "'>" + currentSpecial.text + "</p>";
             $targetDiv.html(htmlToShow);
           }
           //Empty target div if Select is selected
