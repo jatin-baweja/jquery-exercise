@@ -1,0 +1,18 @@
+.stacked_div {
+  width: 20px;
+  height: 20px;
+  border: 1px solid red;
+}
+
+.highlight {
+  background-color: green;
+  color: yellow;
+}
+
+#outer-container {
+  width: 200px;
+}
+
+#add-item {
+  float: right;
+}
