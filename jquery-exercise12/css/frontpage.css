@@ -1,0 +1,29 @@
+#filter-menu, #grid {
+  float: left;
+}
+
+#grid {
+  width: 500px;
+  margin-left: 30px;
+}
+
+#grid img {
+  float: left;
+  width: 125px;
+  height: 125px;
+}
+
+#select-brands span, #select-colors span, #select-availability span {
+  float: left;
+  clear: left;
+  margin-top: 30px;
+}
+
+input {
+  float: left;
+  clear: left;
+}
+
+label {
+  float: left;
+}

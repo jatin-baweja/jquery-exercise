@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Store Front Page
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/frontpage.css" />
+  </head>
+  <body>
+    <div id="filter-menu">
+      <div id="select-brands" >
+        <span>Select Brand :</span>
+        <input type="checkbox" id="brand-a" name="brand" />
+        <label for="brand-a">Brand A</label>
+        <input type="checkbox" id="brand-b" name="brand" />
+        <label for="brand-b">Brand B</label>
+        <input type="checkbox" id="brand-c" name="brand" />
+        <label for="brand-c">Brand C</label>
+        <input type="checkbox" id="brand-d" name="brand" />
+        <label for="brand-d">Brand D</label>
+      </div>
+      <div id="select-colors" >
+        <span>Select Colors :</span>
+        <input type="checkbox" id="red" name="color" />
+        <label for="red" >Red</label>
+        <input type="checkbox" id="green" name="color" />
+        <label for="green" >Green</label>
+        <input type="checkbox" id="yellow" name="color" />
+        <label for="yellow" >Yellow</label>
+        <input type="checkbox" id="blue" name="color" />
+        <label for="blue" >Blue</label>
+      </div>
+      <div id="select-availability" >
+        <span>Select Availability :</span>
+        <input type="radio" id="all" name="sold_out" />
+        <label for="all" >All</label>
+        <input type="radio" id="available" name="sold_out" />
+        <label for="available" >Available</label>
+      </div>
+    </div>
+    <div id="grid" >
+    </div>
+    <script type="text/javascript" src="lib/jquery-1.10.2.js" ></script>
+    <script type="text/javascript" src="js/filter.js" ></script>
+  </body>
+</html>
