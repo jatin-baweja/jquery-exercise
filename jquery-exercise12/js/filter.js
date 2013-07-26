@@ -11,35 +11,36 @@ $(function() {
       recievedJSON = json;
       for (var i in recievedJSON) {
         //Added class for color, brand and availability
-        $('<img src="' + image_path + recievedJSON[i].url + '" />').appendTo($grid).addClass(recievedJSON[i].brand.toLowerCase().replace(' ','-')).addClass(recievedJSON[i].color.toLowerCase()).addClass(recievedJSON[i].sold_out == 1 ? "all" : "available all");
+        $('<img src="' + image_path + recievedJSON[i].url + '" />').appendTo($grid).attr('data-brand', recievedJSON[i].brand).attr('data-color', recievedJSON[i].color).attr('data-sold-out', recievedJSON[i].sold_out);
       }
     },
     error : function() {
       console.log("Error");
     }
   });
-  var $selector = $('.all'), brandsChecked = [], colorsChecked = [], availability = ".all";
+  var $selector = $('#grig img'), brandsChecked = [], colorsChecked = [], availability = "[data-sold-out='2']";
   $('#filter-menu input').bind('change', function(event) {
     var $this = $(this);
-    $selector = $('.all');
+    $selector = $('#grid img');
     $selector.hide();
     //Add to corresponding array if checked
     if ($this.prop('checked')) {
       switch($this.parent().attr('id')) {
-        case "select-brands" : brandsChecked.push("." + $this.attr('id'));
+        case "select-brands" : console.log("[data-brand='" + $this.attr('data-filter') + "']");
+        brandsChecked.push("[data-brand='" + $this.attr('data-filter') + "']");
           break;
-        case "select-colors" : colorsChecked.push("." + $this.attr('id'));
+        case "select-colors" : colorsChecked.push("[data-color='" + $this.attr('data-filter') + "']");
           break;
-        case "select-availability" : availability = "." + $this.attr('id');
+        case "select-availability" : availability = "[data-sold-out='" + $this.attr('data-filter') + "']";
           break;
       }
     }
     //Remove from corresponding array if unchecked
     else if (!$this.prop('checked')) {
       switch($this.parent().attr('id')) {
-        case "select-brands" : brandsChecked.splice(brandsChecked.indexOf("." + $this.attr('id')),1);
+        case "select-brands" : brandsChecked.splice(brandsChecked.indexOf("[data-brand='" + $this.attr('data-filter') + "']"),1);
           break;
-        case "select-colors" : colorsChecked.splice(colorsChecked.indexOf("." + $this.attr('id')),1);
+        case "select-colors" : colorsChecked.splice(colorsChecked.indexOf("[data-color='" + $this.attr('data-filter') + "']"),1);
           break;
       }
     }
@@ -50,7 +51,9 @@ $(function() {
     if (colorsChecked.length > 0) {
       $selector = $selector.filter($(colorsChecked.join(", ")));
     }
-    $selector = $selector.filter($(availability));
-    $selector.show();
+    if (availability != "[data-sold-out='2']") {
+      $selector = $selector.filter($(availability));
+    }
+    console.log($selector.show());
   });
 });
