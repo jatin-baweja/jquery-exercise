@@ -1,0 +1,24 @@
+#rating-values {
+  display: inline-block;
+}
+
+#empty-div, .product, #rating-values div, .radio-box {
+  display: inline-block;
+  height: 30px;
+  width: 100px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.highlight {
+  color: #224376;
+  background-color: #DCE4EC;
+}
+
+.radio-box, .rating {
+  border-right: 1px solid #C4CFE6;
+}
+
+.radio-box:last-of-type, .rating:last-of-type {
+  border-right: none;
+}
