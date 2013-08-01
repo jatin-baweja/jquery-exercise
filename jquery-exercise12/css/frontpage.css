@@ -13,7 +13,7 @@
   height: 125px;
 }
 
-#select-brands span, #select-colors span, #select-availability span {
+#select-brand span, #select-color span, #select-sold-out span {
   float: left;
   clear: left;
   margin-top: 30px;

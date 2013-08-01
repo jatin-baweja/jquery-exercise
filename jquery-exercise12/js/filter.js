@@ -18,35 +18,26 @@ $(function() {
       console.log("Error");
     }
   });
+  var filterBy = function(criteria, selector) {
+    var filterString = "";
+    var checkedCriteria = $('#select-' + criteria + ' input[data-filter]:checked');
+    if (checkedCriteria.length > 0) {
+      checkedCriteria.each(function(index){
+        var $this = $(this);
+        filterString += (index == 0 ? "" : ", ") + "[data-" + criteria + "='" + $this.attr('data-filter') + "']";
+      });
+      selector = selector.filter(filterString);
+    }
+    return selector;
+  }
   $('#filter-menu input').bind('change', function(event) {
     var $this = $(this);
     $selector = $('#grid img');
     $selector.hide();
-    //Brands Checked Boxes
-    var filterString = "";
-    var $brandsChecked = $('#select-brands input:checked');
-    if ($brandsChecked.length > 0) {
-      $brandsChecked.each(function(index){
-        var $this = $(this);
-        filterString += (index == 0 ? "" : ", ") + "[data-brand='" + $this.attr('data-filter') + "']";
-      });
-      $selector = $selector.filter(filterString);
-    }
-    filterString = "";
-    var $colorsChecked = $('#select-colors input:checked');
-    if ($colorsChecked.length > 0) {
-      $colorsChecked.each(function(index){
-         var $this = $(this);
-         filterString += (index == 0 ? "" : ", ") + "[data-color='" + $this.attr('data-filter') + "']";
-       });
-       $selector = $selector.filter(filterString);
-    }
-    filterString = "";
-    $availability = $('#select-availability input:checked');
-    if ($availability.attr('data-filter') == "0") {
-      filterString = "[data-sold-out='" + $availability.attr('data-filter') + "']";
-      $selector = $selector.filter(filterString);
-    }
+    //Filter By each criteria
+    $selector = filterBy('brand', $selector);
+    $selector = filterBy('color', $selector);
+    $selector = filterBy('sold-out', $selector);
     $selector.show();
   });
 });
